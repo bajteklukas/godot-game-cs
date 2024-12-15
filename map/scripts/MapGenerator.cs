@@ -7,8 +7,8 @@ public partial class MapGenerator : Node2D
 	int tileSetID = 1;
 	Vector2I tilePos = new Vector2I(1, 1);
 	
-	int width = 100;
-	int height = 100;
+	int width = 1000;
+	int height = 1000;
 	
 	public override void _Ready(){
 		tileMap = GetNode<TileMapLayer>("TileMapLayer");

@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt3d8idn807oj"]
+[gd_scene load_steps=5 format=3 uid="uid://bt3d8idn807oj"]
 
-[ext_resource type="PackedScene" uid="uid://00eaac523bpo" path="res://map/map_generator.tscn" id="1_0j58j"]
-[ext_resource type="PackedScene" uid="uid://cnfmm1ak5itn6" path="res://enemy/enemy.tscn" id="1_icbh2"]
+[ext_resource type="PackedScene" uid="uid://00eaac523bpo" path="res://Map/MapGenerator.tscn" id="1_0j58j"]
+[ext_resource type="PackedScene" uid="uid://j2fsk24llbhs" path="res://UI/FPS/fps.tscn" id="1_m4ar4"]
 [ext_resource type="PackedScene" uid="uid://bhefnpoc8ajkh" path="res://Player/player.tscn" id="2_ydlw4"]
+[ext_resource type="PackedScene" uid="uid://igh5t3uxmfnn" path="res://EnemySpawner/enemy_spawner.tscn" id="4_4k5dj"]
 
 [node name="main" type="Node2D"]
 
-[node name="Enemy" parent="." instance=ExtResource("1_icbh2")]
-position = Vector2(-233, -202)
-motion_mode = 1
-
-[node name="map_generator" parent="." instance=ExtResource("1_0j58j")]
+[node name="MapGenerator" parent="." instance=ExtResource("1_0j58j")]
 
 [node name="Player" parent="." instance=ExtResource("2_ydlw4")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_4k5dj")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FPS" parent="CanvasLayer" instance=ExtResource("1_m4ar4")]

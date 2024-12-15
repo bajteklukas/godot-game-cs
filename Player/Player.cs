@@ -3,7 +3,7 @@ using System;
 
 public partial class Player: CharacterBody2D
 {
-	int speed = 400;
+	int speed = 180;
 
 	public void GetInput(){
 		Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
