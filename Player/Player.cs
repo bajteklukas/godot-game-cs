@@ -3,18 +3,14 @@ using System;
 
 public partial class Player: CharacterBody2D
 {
-	[Export]
-	public int Speed { get; set; } = 400;
+	int speed = 400;
 
-	public void GetInput()
-	{
+	public void GetInput(){
 		Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		Velocity = inputDirection * Speed;
-		GD.Print(inputDirection);
+		Velocity = inputDirection * speed;
 	}
 
-	public override void _PhysicsProcess(double delta)
-	{
+	public override void _PhysicsProcess(double delta){
 		GetInput();
 		MoveAndSlide();
 	}
