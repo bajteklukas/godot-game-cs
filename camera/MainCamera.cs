@@ -18,14 +18,14 @@ public partial class MainCamera : Camera2D
 	}
 	
 	void ZoomIn(){
-		if(Zoom.X < 2) { 
-			Zoom += new Vector2(0.1f, 0.1f);
+		if(Zoom.X < 1) { 
+			Zoom += new Vector2(0.05f, 0.05f);
 		}
 	}
 	
 	void ZoomOut(){
-		if(Zoom.X > 1) { 
-			Zoom -= new Vector2(0.1f, 0.1f);
+		if(Zoom.X > 0.1) { 
+			Zoom -= new Vector2(0.05f, 0.05f);
 		}
 	}
 }

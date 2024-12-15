@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://enemy/scripts/Enemy.cs" id="1_qo4wt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_evete"]
-radius = 44.3847
+radius = 140.014
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_qo4wt")
@@ -18,3 +18,4 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
+color = Color(1, 0, 1, 1)
