@@ -18,7 +18,7 @@ public partial class MapGenerator : Node2D
 	void GenerateMap(){
 		for(int x = 0; x < width; x++){
 			for(int y = 0; y < height; y++){
-				tileMap.SetCell(new Vector2I(x, y), tileSetID, tilePos);
+				tileMap.SetCell(new Vector2I(x - width / 2, y - height / 2), tileSetID, tilePos);
 			}
 		}
 	}

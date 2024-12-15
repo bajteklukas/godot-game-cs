@@ -7,6 +7,8 @@
 [node name="main" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_icbh2")]
+position = Vector2(-233, -202)
+motion_mode = 1
 
 [node name="map_generator" parent="." instance=ExtResource("1_0j58j")]
 
