@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://dik5dnq8l0lpf"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_jkuek"]
+script/source = "using Godot;
+using System;
+
+public partial class MainMenu : Control
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("CSharpScript_jkuek")
+
+[node name="MainMenuBG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.243137)
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 210.0
+offset_top = 45.0
+offset_right = 431.0
+offset_bottom = 111.0
+text = "START"
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 131.0
+offset_right = 431.0
+offset_bottom = 197.0
+text = "SETTINGS"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 210.0
+offset_top = 223.0
+offset_right = 431.0
+offset_bottom = 289.0
+text = "EXIT"

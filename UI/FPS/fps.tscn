@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://UI/FPS/Fps.cs" id="1_7l7fv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a2vpt"]
-font_size = 80
+line_spacing = 0.0
+font_size = 40
 
 [node name="FPS" type="Control"]
 layout_mode = 3
@@ -12,14 +13,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(416, -284)
 script = ExtResource("1_7l7fv")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1423.0
-offset_top = 27.0
-offset_right = 1901.0
-offset_bottom = 230.0
+offset_left = 489.0
+offset_right = 626.0
+offset_bottom = 55.0
 text = "60"
 label_settings = SubResource("LabelSettings_a2vpt")
 horizontal_alignment = 2
