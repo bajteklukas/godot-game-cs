@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt3d8idn807oj"]
+[gd_scene load_steps=6 format=3 uid="uid://bt3d8idn807oj"]
 
 [ext_resource type="PackedScene" uid="uid://00eaac523bpo" path="res://Map/MapGenerator.tscn" id="1_0j58j"]
 [ext_resource type="PackedScene" uid="uid://j2fsk24llbhs" path="res://UI/FPS/fps.tscn" id="1_m4ar4"]
 [ext_resource type="PackedScene" uid="uid://bhefnpoc8ajkh" path="res://Player/player.tscn" id="2_ydlw4"]
 [ext_resource type="PackedScene" uid="uid://igh5t3uxmfnn" path="res://EnemySpawner/enemy_spawner.tscn" id="4_4k5dj"]
+[ext_resource type="PackedScene" uid="uid://cn1p0tvec4g6l" path="res://UI/MainMenu/main_menu.tscn" id="4_n8use"]
 
 [node name="main" type="Node2D"]
 
@@ -14,5 +15,11 @@
 [node name="EnemySpawner" parent="." instance=ExtResource("4_4k5dj")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("4_n8use")]
+offset_left = 318.222
+offset_top = 94.6311
+offset_right = 318.222
+offset_bottom = 94.6311
 
 [node name="FPS" parent="CanvasLayer" instance=ExtResource("1_m4ar4")]
