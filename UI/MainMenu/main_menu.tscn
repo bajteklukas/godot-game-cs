@@ -1,22 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dik5dnq8l0lpf"]
+[gd_scene load_steps=5 format=3 uid="uid://de25m1nw3h51j"]
 
-[sub_resource type="CSharpScript" id="CSharpScript_jkuek"]
-script/source = "using Godot;
-using System;
-
-public partial class MainMenu : Control
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-}
-"
+[ext_resource type="Script" path="res://UI/MainMenu/MainMenu.cs" id="1_ggdhe"]
+[ext_resource type="Script" path="res://UI/MainMenu/StartButton.cs" id="1_pkbmk"]
+[ext_resource type="Script" path="res://UI/MainMenu/SettingsButton.cs" id="3_tfxod"]
+[ext_resource type="Script" path="res://UI/MainMenu/ExitButton.cs" id="4_mlkyg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,32 +12,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("CSharpScript_jkuek")
+script = ExtResource("1_ggdhe")
 
-[node name="MainMenuBG" type="ColorRect" parent="."]
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 40.0
+offset_right = 420.0
+offset_bottom = 94.0
+text = "START"
+script = ExtResource("1_pkbmk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 0.243137)
-
-[node name="StartButton" type="Button" parent="."]
-offset_left = 210.0
-offset_top = 45.0
-offset_right = 431.0
-offset_bottom = 111.0
-text = "START"
+color = Color(0, 0, 0, 0.45098)
 
 [node name="SettingsButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 131.0
-offset_right = 431.0
-offset_bottom = 197.0
+offset_left = 220.0
+offset_top = 111.0
+offset_right = 420.0
+offset_bottom = 165.0
 text = "SETTINGS"
+script = ExtResource("3_tfxod")
 
 [node name="ExitButton" type="Button" parent="."]
-offset_left = 210.0
-offset_top = 223.0
-offset_right = 431.0
-offset_bottom = 289.0
+offset_left = 220.0
+offset_top = 182.0
+offset_right = 420.0
+offset_bottom = 236.0
 text = "EXIT"
+script = ExtResource("4_mlkyg")

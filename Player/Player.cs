@@ -1,10 +1,11 @@
 using Godot;
 using System;
 using System.Numerics;
+using System.Transactions;
 
 public partial class Player: CharacterBody2D
 {
-	float speed = 250f;
+	float speed = 180f;
 
 	public void Movement(){
 		Godot.Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
@@ -12,18 +13,21 @@ public partial class Player: CharacterBody2D
 		MoveAndSlide();
 	}
 
-	public float rollSpeed = 800f;
-	public float rollDuration = 0.5f;
-	public float rollCooldown = 1f;
+	CollisionShape2D playerCollider;
 
-	private bool isRolling = false;
-	private float rollTimer = 0f;
-	private float cooldownTimer = 0f;
+	float rollSpeed = 800f;
+	float rollDuration = 0.5f;
+	float rollCooldown = 1f;
 
-	private Godot.Vector2 rollDirection = Godot.Vector2.Zero;
+	bool isRolling = false;
+	float rollTimer = 0f;
+	float cooldownTimer = 0f;
+
+	Godot.Vector2 rollDirection = Godot.Vector2.Zero;
 
 	public void StartRoll()
 	{
+		playerCollider.Disabled = true;
 		isRolling = true;
 		rollTimer = rollDuration;
 		cooldownTimer = rollCooldown;
@@ -38,46 +42,38 @@ public partial class Player: CharacterBody2D
 	
 	public void UpdateRollDirection(){
         Godot.Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-        if (inputDirection != Godot.Vector2.Zero)
-        {
+        if (inputDirection != Godot.Vector2.Zero){
             inputDirection = inputDirection.Normalized();
             Velocity = inputDirection * rollSpeed;
         }		
 	}
 
-	public void HandleRolling(double delta)
-	{
+	public void HandleRolling(double delta){
 		rollTimer -= (float)delta;
-
 		UpdateRollDirection();
 		
-		if (rollTimer <= 0f)
-		{
+		if (rollTimer <= 0f){
 			isRolling = false;
 			Velocity = Godot.Vector2.Zero;
+			playerCollider.Disabled = false;
 		}
-		else
-		{
-			MoveAndSlide();
-		}
+		else{ MoveAndSlide(); }
 	}
 
+	public override void _Ready(){
+		playerCollider = GetNode<CollisionShape2D>("CollisionShape2D");
+	}
+
+
 	public override void _PhysicsProcess(double delta){
-		if (isRolling)
-		{
-			HandleRolling(delta);
-		}
-		else
-		{
+		if (isRolling){ HandleRolling(delta); }
+		else {
 			Movement();
-			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll"))
-			{
+			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll")){
 				StartRoll();
 			}
 		}
-
-		if (cooldownTimer > 0f)
-		{
+		if (cooldownTimer > 0f){
 			cooldownTimer -= (float)delta;
 		}
 	}

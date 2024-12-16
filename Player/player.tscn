@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_la7oc"]
 [ext_resource type="PackedScene" uid="uid://c33b0ui5072sh" path="res://Camera/main_camera.tscn" id="2_sllgw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lgvr"]
-size = Vector2(40, 40)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgoas"]
+radius = 20.025
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -19,4 +19,4 @@ offset_right = 20.0
 offset_bottom = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7lgvr")
+shape = SubResource("CircleShape2D_xgoas")
