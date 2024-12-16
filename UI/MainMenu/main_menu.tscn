@@ -1,6 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://cn1p0tvec4g6l"]
 
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.cs" id="1_bm2nl"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://cwt5rkkarc1vo"]
+
+[ext_resource type="Script" path="res://UI/MainMenu/MainMenu.cs" id="1_bm2nl"]
+[ext_resource type="Script" path="res://UI/MainMenu/StartButton.cs" id="1_d6715"]
+[ext_resource type="Script" path="res://UI/MainMenu/ExitButton.cs" id="1_kroiu"]
+>>>>>>> Stashed changes
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,30 +19,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bm2nl")
 
-[node name="MainMenuBG" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 0.243137)
+color = Color(0, 0, 0, 0.517647)
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 210.0
-offset_top = 45.0
-offset_right = 431.0
-offset_bottom = 111.0
-text = "START"
-
-[node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 131.0
-offset_right = 431.0
-offset_bottom = 197.0
-text = "SETTINGS"
+offset_left = 201.0
+offset_top = 40.0
+offset_right = 404.0
+offset_bottom = 110.0
+text = "start"
+script = ExtResource("1_d6715")
 
 [node name="ExitButton" type="Button" parent="."]
-offset_left = 210.0
-offset_top = 223.0
-offset_right = 431.0
-offset_bottom = 289.0
-text = "EXIT"
+offset_left = 201.0
+offset_top = 249.0
+offset_right = 404.0
+offset_bottom = 319.0
+text = "exit"
+script = ExtResource("1_kroiu")
