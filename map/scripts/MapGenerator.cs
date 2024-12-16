@@ -12,10 +12,6 @@ public partial class MapGenerator : Node2D
 	
 	public override void _Ready(){
 		tileMap = GetNode<TileMapLayer>("TileMapLayer");
-		if (tileMap == null)
-		{
-			GD.PrintErr("no tile map");
-		}
 		GenerateMap();
 	}
 
