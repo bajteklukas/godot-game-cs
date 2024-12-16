@@ -28,18 +28,29 @@ public partial class Player: CharacterBody2D
 		rollTimer = rollDuration;
 		cooldownTimer = rollCooldown;
 
-		rollDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
         if (rollDirection == Godot.Vector2.Zero)
         {
             rollDirection = Velocity.Normalized();
         }
 
-		Velocity = rollDirection * rollSpeed;
+			UpdateRollDirection();
 	}
 	
+	public void UpdateRollDirection(){
+        Godot.Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+        if (inputDirection != Godot.Vector2.Zero)
+        {
+            inputDirection = inputDirection.Normalized();
+            Velocity = inputDirection * rollSpeed;
+        }		
+	}
+
 	public void HandleRolling(double delta)
 	{
 		rollTimer -= (float)delta;
+
+		UpdateRollDirection();
+		
 		if (rollTimer <= 0f)
 		{
 			isRolling = false;
