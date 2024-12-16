@@ -7,22 +7,12 @@ public partial class Enemy : CharacterBody2D
 	Node main;
 	EnemySpawner enemySpawnerScript;
 
-	int speed = 150;
+	int speed = 200;
 	int frameCounterDistanceCheck = 0;
 
 	public override void _Ready(){
 		main = GetTree().Root.GetNode<Node2D>("main");
-		enemySpawnerScript = main.GetNode<EnemySpawner>("EnemySpawner");
 		playerObject =  main.GetNode<CharacterBody2D>("Player");
-
-		if (enemySpawnerScript != null)
-        {
-
-        }
-        else
-        {
-            GD.PrintErr("Failed to cast the node to EnemySpawner.");
-        }
 	}
 
 	public override void _PhysicsProcess(double delta){
@@ -41,10 +31,7 @@ public partial class Enemy : CharacterBody2D
 	void CheckDistanceFromPlayer() {
 		float distanceToPlayer = Position.DistanceTo(playerObject.Position);
 
-		if(distanceToPlayer > 3000f) {
-			GD.Print("RUN DISTANCE");
-			enemySpawnerScript.RemoveEnemy();
-			GD.Print("QFREE");
+		if(distanceToPlayer > 4000f) {
 			QueueFree();
 		}
 	}
