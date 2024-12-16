@@ -31,6 +31,7 @@ offset_bottom = 360.0
 color = Color(0, 0, 0, 0.45098)
 
 [node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 220.0
 offset_top = 111.0
 offset_right = 420.0
@@ -39,6 +40,7 @@ text = "SETTINGS"
 script = ExtResource("3_tfxod")
 
 [node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 220.0
 offset_top = 182.0
 offset_right = 420.0

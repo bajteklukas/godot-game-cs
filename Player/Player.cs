@@ -5,16 +5,19 @@ using System.Transactions;
 
 public partial class Player: CharacterBody2D
 {
-	float speed = 180f;
+	GameManager gameManager;
+	Node main;
 
+	float movementSpeed = 180f;
 	public void Movement(){
 		Godot.Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		Velocity = inputDirection * speed;
+		Velocity = inputDirection * movementSpeed;
 		MoveAndSlide();
 	}
 
 	CollisionShape2D playerCollider;
 
+	bool canRoll = false;
 	float rollSpeed = 800f;
 	float rollDuration = 0.5f;
 	float rollCooldown = 1f;
@@ -25,19 +28,14 @@ public partial class Player: CharacterBody2D
 
 	Godot.Vector2 rollDirection = Godot.Vector2.Zero;
 
-	public void StartRoll()
-	{
+	public void StartRoll(){
 		playerCollider.Disabled = true;
 		isRolling = true;
 		rollTimer = rollDuration;
 		cooldownTimer = rollCooldown;
 
-        if (rollDirection == Godot.Vector2.Zero)
-        {
-            rollDirection = Velocity.Normalized();
-        }
-
-			UpdateRollDirection();
+        if (rollDirection == Godot.Vector2.Zero){ rollDirection = Velocity.Normalized(); }
+		UpdateRollDirection();
 	}
 	
 	public void UpdateRollDirection(){
@@ -61,7 +59,12 @@ public partial class Player: CharacterBody2D
 	}
 
 	public override void _Ready(){
+		main = GetTree().Root.GetNode<Node>("main");
+		gameManager = main.GetNode<Node>("GameManager").GetNode<GameManager>("GameManager");
+
+
 		playerCollider = GetNode<CollisionShape2D>("CollisionShape2D");
+		SpawnPlayerInTown();
 	}
 
 
@@ -69,12 +72,12 @@ public partial class Player: CharacterBody2D
 		if (isRolling){ HandleRolling(delta); }
 		else {
 			Movement();
-			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll")){
+			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll") && canRoll){
 				StartRoll();
 			}
 		}
-		if (cooldownTimer > 0f){
-			cooldownTimer -= (float)delta;
-		}
+		if (cooldownTimer > 0f){ cooldownTimer -= (float)delta; }
 	}
+
+	void SpawnPlayerInTown() { Position = new Godot.Vector2(-115224, -28888); }
 }

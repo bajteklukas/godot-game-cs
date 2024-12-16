@@ -24,7 +24,7 @@ public partial class MainCamera : Camera2D
 	}
 	
 	void ZoomOut(){
-		if(Zoom.X > 0.1) { 
+		if(Zoom.X > 0.5) { 
 			Zoom -= new Vector2(0.05f, 0.05f);
 		}
 	}
