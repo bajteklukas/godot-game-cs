@@ -9,7 +9,7 @@ public partial class Fps : Control
 	{
 		GetNode<Label>("Label").Text = $"{Engine.GetFramesPerSecond()}FPS";
 
-		if (Input.IsActionPressed("escape"))
+		if (Input.IsActionJustPressed("escape"))
         {
             TogglePause();
         }
