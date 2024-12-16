@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bhefnpoc8ajkh" path="res://Player/player.tscn" id="2_ydlw4"]
 [ext_resource type="PackedScene" uid="uid://igh5t3uxmfnn" path="res://EnemySpawner/enemy_spawner.tscn" id="4_4k5dj"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cn1p0tvec4g6l" path="res://UI/MainMenu/main_menu.tscn" id="4_n8use"]
+=======
+[ext_resource type="PackedScene" uid="uid://cwt5rkkarc1vo" path="res://UI/MainMenu/main_menu.tscn" id="4_n8use"]
+>>>>>>> Stashed changes
 =======
 [ext_resource type="PackedScene" uid="uid://cwt5rkkarc1vo" path="res://UI/MainMenu/main_menu.tscn" id="4_n8use"]
 >>>>>>> Stashed changes

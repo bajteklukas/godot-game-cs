@@ -1,7 +1,15 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://cn1p0tvec4g6l"]
 
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.cs" id="1_bm2nl"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://cwt5rkkarc1vo"]
+
+[ext_resource type="Script" path="res://UI/MainMenu/MainMenu.cs" id="1_bm2nl"]
+[ext_resource type="Script" path="res://UI/MainMenu/StartButton.cs" id="1_d6715"]
+[ext_resource type="Script" path="res://UI/MainMenu/ExitButton.cs" id="1_kroiu"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=4 format=3 uid="uid://cwt5rkkarc1vo"]
 
