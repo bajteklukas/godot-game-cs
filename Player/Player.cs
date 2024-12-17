@@ -23,7 +23,8 @@ public partial class Player: CharacterBody2D
 		MoveAndSlide();
 	}
 
-	CollisionShape2D playerCollider;
+	
+	CircleShape2D playerCollider;
 
 	float canRoll = 20f;
 	float rollSpeed = 400f;
@@ -37,9 +38,7 @@ public partial class Player: CharacterBody2D
 	Godot.Vector2 rollDirection = Godot.Vector2.Zero;
 
 	public void StartRoll(){
-		if (playerCollider.Shape is CircleShape2D circleShape){
-            circleShape.Radius = 0.1f;
-        }
+        playerCollider.Radius = 0.1f;
 		isRolling = true;
 		rollTimer = rollDuration;
 		cooldownTimer = rollCooldown;
@@ -63,7 +62,7 @@ public partial class Player: CharacterBody2D
 		if (rollTimer <= 0f){
 			isRolling = false;
 			Velocity = Godot.Vector2.Zero;
-			playerCollider.Disabled = false;
+			playerCollider.Radius = 20f;
 		}
 		else{ MoveAndSlide(); }
 	}
@@ -72,7 +71,7 @@ public partial class Player: CharacterBody2D
 		main = GetTree().Root.GetNode<Node2D>("main");
 		gameManagerScript = main.GetNode<Node>("GameManager") as GameManager;
 
-		playerCollider = GetNode<CollisionShape2D>("CollisionShape2D");
+		playerCollider = GetNode<CollisionShape2D>("CollisionShape2D").Shape as CircleShape2D;
 		SpawnPlayerInTown();
 	}
 

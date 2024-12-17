@@ -4,7 +4,7 @@ using System.Numerics;
 
 public partial class EnemySpawner : Node
 {
-	bool canSpawnEnemies = false;
+	public bool canSpawnEnemies = false;
 	CharacterBody2D playerObject;
 	PackedScene enemyScene;
 	RandomNumberGenerator rng = new RandomNumberGenerator();
