@@ -28,13 +28,22 @@ public partial class GameManager : Node
 
 
 
-
 	public override void _Ready(){
 		main = GetTree().Root.GetNode<Node2D>("main");
 		enemySpawner = main.GetNode<Node>("EnemySpawner") as EnemySpawner;
 	}
 
+	
+
+
+
+	// INPUT HANDLING //
+
 	public override void _Process(double delta){
 		
 	}
+
+
+
+
 }
