@@ -9,9 +9,17 @@ public partial class Player: CharacterBody2D
 	Node2D main;
 
 	float movementSpeed = 180f;
-	public void Movement(){
+	float friction = 1000f;
+
+	public void Movement(double delta){
 		Godot.Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		Velocity = inputDirection * movementSpeed;
+		if (inputDirection != Godot.Vector2.Zero){
+			Velocity = inputDirection * movementSpeed;
+		}
+		else {
+			Velocity = Velocity.MoveToward(Godot.Vector2.Zero, friction * (float)delta);
+		}
+		
 		MoveAndSlide();
 	}
 
@@ -72,7 +80,7 @@ public partial class Player: CharacterBody2D
 	public override void _PhysicsProcess(double delta){
 		if (isRolling){ HandleRolling(delta); }
 		else {
-			Movement();
+			Movement(delta);
 			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll")){
 				StartRoll();
 			}
