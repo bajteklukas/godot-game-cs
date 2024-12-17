@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://coro25eauanf"]
+
+[node name="MainInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBarMainBG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 432.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 0.623529)
+
+[node name="HealthBarMain" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 432.0
+offset_bottom = 24.0
+color = Color(1, 0.0352941, 0.337255, 1)
+
+[node name="HealthBarMini" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 270.0
+offset_top = 129.0
+offset_right = 367.0
+offset_bottom = 142.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jcjnyd6fx5ts"]
+
+[ext_resource type="Script" path="res://Player/PlayerCombatManager/PlayerCombatManager.cs" id="1_nf5ir"]
+
+[node name="PlayerCombatManager" type="Node"]
+script = ExtResource("1_nf5ir")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt3d8idn807oj"]
+[gd_scene load_steps=10 format=3 uid="uid://bt3d8idn807oj"]
 
 [ext_resource type="PackedScene" uid="uid://00eaac523bpo" path="res://Map/MapGenerator.tscn" id="1_0j58j"]
 [ext_resource type="PackedScene" uid="uid://cjkfi0uxl0n8o" path="res://GameManager/game_manager.tscn" id="1_2mm6u"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://igh5t3uxmfnn" path="res://EnemySpawner/enemy_spawner.tscn" id="4_4k5dj"]
 [ext_resource type="PackedScene" uid="uid://de25m1nw3h51j" path="res://UI/MainMenu/main_menu.tscn" id="4_a2j1n"]
 [ext_resource type="PackedScene" uid="uid://dw3ivwf6d76k4" path="res://UI/UsableObjectOverlay/usable_object_overlay.tscn" id="6_prb5j"]
+[ext_resource type="PackedScene" uid="uid://coro25eauanf" path="res://UI/MainInterface/main_interface.tscn" id="7_cqfal"]
 
 [node name="main" type="Node2D"]
 
@@ -27,6 +28,9 @@
 visible = false
 pivot_offset = Vector2(673, 159)
 
+[node name="MainInterface" parent="MainUI" instance=ExtResource("7_cqfal")]
+
 [node name="FPS" parent="MainUI" instance=ExtResource("1_m4ar4")]
 
 [node name="MainMenu" parent="MainUI" instance=ExtResource("4_a2j1n")]
+visible = false
