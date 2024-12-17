@@ -7,7 +7,7 @@ public partial class GameManager : Node
 
 	// ENEMY SPAWNER //
 	EnemySpawner enemySpawner;
-	bool canSpawnEnemies = false;
+	public bool canSpawnEnemies = false;
 	
 	// PLAYER //
 	bool canRoll = false;
@@ -31,10 +31,10 @@ public partial class GameManager : Node
 
 	public override void _Ready(){
 		main = GetTree().Root.GetNode<Node2D>("main");
-		enemySpawner = main.GetNode<Node>("EnemySpawner").GetNode<EnemySpawner>("EnemySpawner");
+		enemySpawner = main.GetNode<Node>("EnemySpawner") as EnemySpawner;
 	}
 
-	public override void _Process(double delta)
-	{
+	public override void _Process(double delta){
+		
 	}
 }

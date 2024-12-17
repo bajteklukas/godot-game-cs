@@ -5,8 +5,8 @@ using System.Transactions;
 
 public partial class Player: CharacterBody2D
 {
-	GameManager gameManager;
-	Node main;
+	GameManager gameManagerScript;
+	Node2D main;
 
 	float movementSpeed = 180f;
 	public void Movement(){
@@ -59,9 +59,8 @@ public partial class Player: CharacterBody2D
 	}
 
 	public override void _Ready(){
-		main = GetTree().Root.GetNode<Node>("main");
-		gameManager = main.GetNode<Node>("GameManager").GetNode<GameManager>("GameManager");
-
+		main = GetTree().Root.GetNode<Node2D>("main");
+		gameManagerScript = main.GetNode<Node>("GameManager") as GameManager;
 
 		playerCollider = GetNode<CollisionShape2D>("CollisionShape2D");
 		SpawnPlayerInTown();

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw3ivwf6d76k4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bu7fd"]
+
+[node name="UsableObjectOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 277.0
+offset_right = 370.0
+offset_bottom = 300.0
+text = "[F] TO USE"
+label_settings = SubResource("LabelSettings_bu7fd")
+horizontal_alignment = 1
+vertical_alignment = 1
