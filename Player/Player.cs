@@ -17,9 +17,9 @@ public partial class Player: CharacterBody2D
 
 	CollisionShape2D playerCollider;
 
-	bool canRoll = false;
-	float rollSpeed = 800f;
-	float rollDuration = 0.5f;
+	float canRoll = 20f;
+	float rollSpeed = 400f;
+	float rollDuration = 0.35f;
 	float rollCooldown = 1f;
 
 	bool isRolling = false;
@@ -29,7 +29,9 @@ public partial class Player: CharacterBody2D
 	Godot.Vector2 rollDirection = Godot.Vector2.Zero;
 
 	public void StartRoll(){
-		playerCollider.Disabled = true;
+		if (playerCollider.Shape is CircleShape2D circleShape){
+            circleShape.Radius = 0.1f;
+        }
 		isRolling = true;
 		rollTimer = rollDuration;
 		cooldownTimer = rollCooldown;
@@ -71,7 +73,7 @@ public partial class Player: CharacterBody2D
 		if (isRolling){ HandleRolling(delta); }
 		else {
 			Movement();
-			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll") && canRoll){
+			if (cooldownTimer <= 0f && Input.IsActionJustPressed("roll")){
 				StartRoll();
 			}
 		}
