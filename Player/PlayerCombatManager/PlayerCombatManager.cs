@@ -5,21 +5,31 @@ public partial class PlayerCombatManager : Node
 {
 
 	// PLAYER COMBAT STATS //
-	float health = 100f;
-	float maxHealth = 100f;
+	public float health = 100f;
+	public float maxHealth = 100f;
 
-	int fireResistance = 0;
-	int coldResistance = 0;
-	int lightningResistance = 0;
+	public int fireResistance = 0;
+	public int coldResistance = 0;
+	public int lightningResistance = 0;
 
-	int armour = 0;
-	int evasion = 0;
+	public int armour = 0;
+	public int evasion = 0;
+
+	//FIRE INC
+	public float increasedFireDamage = 1;
+	public float increasedFireDamageOverTime = 1;
+
+	//FIRE MORE
+	public float moreFireDamage = 1;
+	public float moreFireDamageMulti = 1;
+
+
 
 
 	//PLAYER XP STATS //
-	int level = 1;
-	double currentXP = 0f;
-	double requiredXP;
+	public int level = 1;
+	public double currentXP = 0f;
+	public double requiredXP;
 
 	void ReceiveXP(double amount) {
 		currentXP += amount;

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhefnpoc8ajkh"]
+[gd_scene load_steps=6 format=3 uid="uid://bhefnpoc8ajkh"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_la7oc"]
 [ext_resource type="PackedScene" uid="uid://c33b0ui5072sh" path="res://Camera/main_camera.tscn" id="2_sllgw"]
+[ext_resource type="PackedScene" uid="uid://jcjnyd6fx5ts" path="res://Player/PlayerCombatManager/player_combat_manager.tscn" id="3_yept3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgoas"]
 radius = 20.025
@@ -24,7 +25,11 @@ offset_bottom = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xgoas")
 
+[node name="PlayerCombatManager" parent="." instance=ExtResource("3_yept3")]
+
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_es7lf")

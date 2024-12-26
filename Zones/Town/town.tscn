@@ -59,6 +59,8 @@ tile_set = SubResource("TileSet_ku2k2")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-115073, -29006)
+collision_layer = 128
+collision_mask = 128
 script = ExtResource("2_lxlj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

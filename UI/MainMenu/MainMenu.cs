@@ -4,7 +4,8 @@ using System;
 public partial class MainMenu : Control
 {
 	public override void _Ready(){
-		Engine.TimeScale = 0f;		
+		Visible = true;
+		Engine.TimeScale = 0f;
 	}
 
 	public override void _Process(double delta){

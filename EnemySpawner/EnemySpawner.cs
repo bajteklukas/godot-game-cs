@@ -23,7 +23,6 @@ public partial class EnemySpawner : Node
 		spawnTimer++;
 		if(spawnTimer >= spawnFrequency) { SpawnEnemy(); spawnTimer = 0; }
 	}
-	
 
 	void SpawnEnemy(){
 		if(canSpawnEnemies){

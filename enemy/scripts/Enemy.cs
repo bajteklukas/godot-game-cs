@@ -3,15 +3,15 @@ using System;
 
 public partial class Enemy : CharacterBody2D
 {
-	CharacterBody2D playerObject;
 	Node main;
+	CharacterBody2D playerObject;
 	EnemySpawner enemySpawnerScript;
-
-	int speed = 200;
+	EnemyCombatManager enemyCombatManagerScript;
 
 	public override void _Ready(){
 		main = GetTree().Root.GetNode<Node2D>("main");
 		playerObject =  main.GetNode<CharacterBody2D>("Player");
+		enemyCombatManagerScript = GetNode<Node>("EnemyCombatManager") as EnemyCombatManager;
 	}
 
 	int frameCounterDistanceCheck = 0;
@@ -27,7 +27,7 @@ public partial class Enemy : CharacterBody2D
 
 	void FollowPlayer(){
 		Vector2 direction = (playerObject.Position - Position).Normalized();
-		Velocity = direction * speed;	
+		Velocity = direction * enemyCombatManagerScript.Speed;
 	}
 
 	void CheckDistanceFromPlayer() {
